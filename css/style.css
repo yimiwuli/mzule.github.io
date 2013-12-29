@@ -190,7 +190,11 @@ img {
 #logo {
 	float: left;
 	display: inline-block;
-	margin-top: 20px;
+	margin-top: 40px;
+	color:#eeefff;
+	text-decoration:none;
+	font-size:25px;
+	line-height:30px;
 }
 /** Navigation **/
 #navigation {

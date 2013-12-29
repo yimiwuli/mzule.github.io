@@ -1,18 +1,19 @@
 ---
-	
+tille: Blog of Jason Cao
 ---
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Blog - Dance Website Template</title>
+	<title>Blog of Jason Cao | The devil is in the details</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 	<div id="page">
 		<div id="header">
 			<div>
-				<a href="index.html" id="logo"><img src="images/logo.png" alt="LOGO"></a>
+				<a href="index.html" id="logo">Blog of Jason Cao</a>
 				<ul id="navigation">
 					<li>
 						<a href="index.html">home</a>
@@ -21,16 +22,19 @@
 						<a href="about.html">about</a>
 					</li>
 					<li>
-						<a href="schedules.html">class schedules</a>
+						<a href="resume.html">career</a>
 					</li>
 					<li>
-						<a href="performance.html">performances</a>
-					</li>
-					<li class="selected">
-						<a href="blog.html">blog</a>
+						<a href="resume.html">specials</a>
 					</li>
 					<li>
-						<a href="contact.html">contact</a>
+						<a href="resume.html">cnblogs</a>
+					</li>
+					<li>
+						<a href="resume.html">cnblogs</a>
+					</li>
+					<li>
+						<a href="resume.html">weibo</a>
 					</li>
 				</ul>
 			</div>
@@ -41,9 +45,6 @@
 				<li>
 					<div class="header">
 						<div class="details">
-							<div class="frame3">
-								<img src="images/dance-tips.jpg" alt="Img">
-							</div>
 							<span class="category">Dance Tips &amp; Tricks:</span>
 							<h3><a href="blog.html">Know If Modern Dance Is Right For You</a></h3>
 							<p>
@@ -60,9 +61,6 @@
 				<li>
 					<div class="header">
 						<div class="details">
-							<div class="frame3">
-								<img src="images/dance-tricks.jpg" alt="Img">
-							</div>
 							<span class="category">Dance Tips &amp; Tricks:</span>
 							<h3><a href="blog.html">The Secrets To A Succesful Dancing Career</a></h3>
 							<p>
@@ -76,6 +74,24 @@
 						</div>
 					</div>
 				</li>
+				{% for post in site.posts %}
+				<li>
+					<div class="header">
+						<div class="details">
+							<span class="category">Dance Tips &amp; Tricks:</span>
+							<h3><a href="{{ site.baseurl }}{{ post.url ]}">{{ post.title }}</a></h3>
+							<p>
+								This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forum</a>.
+							</p>
+							<div class="connect">
+								<p class="time">
+									Posted 5th of June 2023 in <a href="blog.html">Dance Tips & Tricks</a> by Jenny
+								</p>
+							</div>
+						</div>
+					</div>
+				<li>
+				{% endfor %}	
 			</ul>
 		</div>
 		<div id="footer">
