@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome Document via md</title>
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="../index.html" id="logo">MZULE</a>
+				<ul id="navigation">
+					<li>
+						<a href="../index.html">home</a>
+					</li>
+					<li>
+						<a href="../me.html">about</a>
+					</li>
+					<li>
+						<a href="../schedules.html">class schedules</a>
+					</li>
+					<li>
+						<a href="../performance.html">performances</a>
+					</li>
+					<li class="selected">
+						<a href="../blog.html">blog</a>
+					</li>
+					<li>
+						<a href="../contact.html">contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="contents">
+			<ul id="blogs">
+				<li>
+					<div class="header">
+						<div class="details">
+							<h3><a href="_post/Welcome.mdhtml">Welcome Document via md</a></h3>
+							<div id="postContent">
+							<p>Welcome to StackEdit!   {#welcome}=====================Hello, I am your first Markdown document within <strong>StackEdit</strong><a href="#publish-a-document">^stackedit]. Don't delete me, I can be helpful. I can be recovered anyway in the <code>Utils</code> tab of the <i class="icon-cog"></i> <code>Settings</code> dialog.----------Documents---------<strong>StackEdit</strong> stores your documents in your browser local storage, which means all your documents are automatically saved locally and are accessible offline.> <strong>NOTE:</strong> This also means that your documents are not shared between different browsers or computers and that clearing your browser's data may <strong>delete all of them!</strong>#### <i class="icon-file"></i> Create a documentYou can create a new document by clicking the <i class="icon-file"></i> button in the navigation bar. This will switch from the current document to the new one.#### <i class="icon-folder-open"></i> Switch to another documentYou can list all your local documents and switch from one to another by clicking the <i class="icon-folder-open"></i> button in the navigation bar.#### <i class="icon-pencil"></i> Rename a documentYou can rename the current document by clicking the document title in the navigation bar.#### <i class="icon-trash"></i> Delete a documentYou can delete the current document by clicking the <i class="icon-trash"></i> button in the navigation bar.#### <i class="icon-hdd"></i> Save a documentYou can save the current document to a file using the <i class="icon-hdd"></i> <code>Save as...</code> sub-menu.> <strong>NOTE:</strong> See [<i class="icon-share"></i> Publish a document</a> section for a description of the different outputs.----------Synchronization---------------<strong>StackEdit</strong> can be combined with <strong>Google Drive</strong> and <strong>Dropbox</strong> to have your documents centralized in the <em>Cloud</em>. The synchronization mechanism will take care of uploading your modifications or downloading the latest version of your documents.> <strong>NOTE:</strong>> > - Full access to <strong>Google Drive</strong> or <strong>Dropbox</strong> is required to be able to import any document in StackEdit.> - Imported documents are downloaded in your browser and are not transmitted to a server.> - If you experience problems exporting documents to Google Drive, check and optionally disable browser extensions, such as Disconnect.#### <i class="icon-download"></i> Import a documentYou can import a document from the <em>Cloud</em> by going to the <i class="icon-provider-gdrive"></i> <code>Google Drive</code> or the <i class="icon-provider-dropbox"></i> <code>Dropbox</code> sub-menu and by clicking <code>Import from...</code>. Once imported, your document will be automatically synchronized with the <strong>Google Drive</strong> / <strong>Dropbox</strong> file.#### <i class="icon-upload"></i> Export a documentYou can export any document by going to the <i class="icon-provider-gdrive"></i> <code>Google Drive</code> or the <i class="icon-provider-dropbox"></i> <code>Dropbox</code> sub-menu and by clicking <code>Export to...</code>. Even if your document is already synchronized with <strong>Google Drive</strong> or <strong>Dropbox</strong>, you can export it to a another location. <strong>StackEdit</strong> can synchronize one document with multiple locations.#### <i class="icon-refresh"></i> Synchronize a documentOnce your document is linked to a <strong>Google Drive</strong> or a <strong>Dropbox</strong> file, <strong>StackEdit</strong> will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. Any conflict will be detected, and a local copy of your document will be created as a backup if necessary.If you just have modified your document and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.> <strong>NOTE:</strong> The <i class="icon-refresh"></i> button is disabled when:> > - you are offline,> - or the document is not synchronized with any location,> - or the document has not been modified since the last synchronization.#### <i class="icon-refresh"></i> Manage document synchronizationSince one document can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> <code>Manage synchronization</code> in the <i class="icon-provider-stackedit"></i> menu. This will open a dialog box allowing you to add or remove synchronization links that are associated to your document.> <strong>NOTE:</strong> If you delete the file from <strong>Google Drive</strong> or from <strong>Dropbox</strong>, the document will no longer be synchronized with that location.----------Publication-----------Once you are happy with your document, you can publish it on different websites directly from <strong>StackEdit</strong>. As for now, <strong>StackEdit</strong> can publish on <strong>Blogger</strong>, <strong>Dropbox</strong>, <strong>Gist</strong>, <strong>GitHub</strong>, <strong>Google Drive</strong>, <strong>Tumblr</strong>, <strong>WordPress</strong> and on any SSH server.#### <i class="icon-share"></i> Publish a documentYou can publish your document by going to the <i class="icon-share"></i> <code>Publish on</code> sub-menu and by choosing a website. In the dialog box, you can choose the publication format:- Markdown, to publish the Markdown text on a website that can interpret it (<strong>GitHub</strong> for instance),- HTML, to publish the document converted into HTML (on a blog for instance),- Template, to have a full control of the output.> <strong>NOTE:</strong> The default template is a simple webpage wrapping your document in HTML format. You can customize it in the <code>Services</code> tab of the <i class="icon-cog"></i> <code>Settings</code> dialog.#### <i class="icon-share"></i> Update a publicationAfter publishing, <strong>StackEdit</strong> will keep your document linked to that publish location so that you can update it easily. Once you have modified your document and you want to update your publication, click on the <i class="icon-share"></i> button in the navigation bar.> <strong>NOTE:</strong> The <i class="icon-share"></i> button is disabled when:> > - you are offline,> - or the document has not been published anywhere.#### <i class="icon-share"></i> Manage document publicationSince one document can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-share"></i> <code>Manage publication</code> in the <i class="icon-provider-stackedit"></i> menu. This will open a dialog box allowing you to remove publication links that are associated to your document.> <strong>NOTE:</strong> In some cases, if you remove the file from the website or the post from the blog, the document will no longer be published on that location.----------Markdown Extra--------------<strong>StackEdit</strong> supports <strong>Markdown Extra</strong>, which extends <strong>Markdown</strong> syntax with some nice features.> <strong>NOTE:</strong> You can disable any <strong>Markdown Extra</strong> feature in the <code>Extensions</code> tab of the <i class="icon-cog"></i> <code>Settings</code> dialog.### Tables<strong>Markdown Extra</strong> has a special syntax for tables:Item      | Value--------- | -----Computer  | \$1600Phone     | \$12Pipe      | \$1You can specify column alignment with one or two colons:| Item      |  Value | Qty  || :-------- | ------:| :--: || Computer  | \$1600 |  5   || Phone     |   \$12 |  12  || Pipe      |    \$1 | 234  |### Definition Lists<strong>Markdown Extra</strong> has a special syntax for definition lists too:Term 1Term 2:   Definition A:   Definition BTerm 3:   Definition C:   Definition D    > part of definition D### Fenced code blocksGitHub's fenced code blocks are also supported with <strong>Prettify</strong> syntax highlighting:<code>// Foovar bar = 0;</code>> <strong>NOTE:</strong> To use <strong>Highlight.js</strong> instead of <strong>Prettify</strong>, just configure the <code>Markdown Extra</code> extension in the <i class="icon-cog"></i> <code>Settings</code> dialog.### Special AttributesWith <strong>Markdown Extra</strong>, you can specify <code>class</code> and <code>id</code> attributes on headers and fenced code blocks just like this:##### Header example {#my-header}<code>{#my-id .my-class}var foo = bar;</code>Then you can create cross-references like this: <a href="#welcome">beginning of the document</a>.### FootnotesYou can create footnotes like this<a href="https://stackedit.io/">^footnote].  [^footnote]: Here is the <em>text</em> of the <strong>footnote</strong>.### SmartyPantsSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:|                  | ASCII                                    | HTML                                | ------------------|------------------------------------------|-------------------------------------| Single backticks | <code>'Isn't this fun?'</code>                      | &#8216;Isn&#8217;t this fun?&#8217; || Quotes           | <code>"Isn't this fun?"</code>                      | &#8220;Isn&#8217;t this fun?&#8221; || Dashes           | <code>-- is an en-dash and --- is an em-dash</code> | &#8211; is an en-dash and &#8212; is an em-dash |### Table of contentsYou can insert a table of contents using the marker <code>[TOC]</code>:[TOC]### MathJax You can render <em>LaTeX</em> mathematical expressions using <strong>MathJax</strong>, as on [math.stackexchange.com][1]:The <em>Gamma function</em> satisfying $\Gamma(n) = (n-1)!\quad\foralln\in\mathbb N$ is via the Euler integral$$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$$> <strong>NOTE:</strong> When exporting, make sure you include MathJax to render mathematical expression correctly. Your page/template should include something like: <code>&lt;script type="text/javascript" src="https://stackedit.io/libs/MathJax/MathJax.js?config=TeX-AMS_HTML"&gt;&lt;/script&gt;</code>> <strong>NOTE:</strong> You can find more information:>> - about <strong>Markdown</strong> syntax [here][2],> - about <strong>Markdown Extra</strong> extension [here][3],> - about <strong>LaTeX</strong> mathematical expressions [here][4],> - about <strong>Prettify</strong> syntax highlighting [here][5],> - about <strong>Highlight.js</strong> syntax highlighting [here][6].Written with [StackEdit</a>.  [^stackedit]: StackEdit is a free, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.  [1]: http://math.stackexchange.com/  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"  [4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference  [5]: https://code.google.com/p/google-code-prettify/  [6]: http://highlightjs.org/</p>
+
+							</div>
+							<div class="connect">
+								<p class="time">
+								Post at 2013-12-31 11:22:12
+								</p>
+							</div>
+							<div class="prenext">
+							<div class="pre"><a href="">Newer Post:</a></div>
+							<div class="next"><a href="Welcome document.html">Older Post:Welcome Document of Markdown</a></div>
+						</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="footer">
+			<div>
+				<div class="section">
+					<h5>Navigation Menu</h5>
+					<ul class="navigation">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li>
+							<a href="about.html">About</a>
+						</li>
+						<li>
+							<a href="schedules.html">Class Schedules</a>
+						</li>
+						<li>
+							<a href="performance.html">Performances</a>
+						</li>
+						<li>
+							<a href="blog.html">Blog</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Recent Blog Posts</h5>
+					<ul>
+						<li>
+							<a href="blog.html">Dance Tips &amp; Tricks: How To Know If Modern Dance Is Right For You</a>
+						</li>
+						<li>
+							<a href="blog.html">Dance Tips &amp; Tricks: The Secrets To A Successful Dancing Career</a>
+						</li>
+						<li>
+							<a href="blog.html">Daring Dancer: Harillsa Gortengkov</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Studio Hours</h5>
+					<ul>
+						<li>
+							Mondays to Fridays: 8am- 5pm
+						</li>
+						<li>
+							Saturdays: 10am-5pm
+						</li>
+						<li>
+							Sundays: 10am-12nn
+						</li>
+						<li>
+							For Appointments: Call 262-956-6778
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Social</h5>
+					<ul class="connect">
+						<li>
+							<a href="http://freewebsitetemplates.com/go/facebook/" target="_blank">Facebook</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/twitter/" target="_blank">Twitter</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/youtube/" target="_blank">Vimeo</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank">Google+</a>
+						</li>
+					</ul>
+					<h5>Newsletter Signup</h5>
+					<form action="index.html" method="post" id="newsletter">
+						<input type="text" value="Enter your email address" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+						<input type="submit" value="" class="btn">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
