@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Blog of MZULE | 最小编辑距离，键盘距离与拼写纠正</title>
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$("pre").addClass("prettyprint");
+});
+</script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<style type="text/css">
+
+/* customerized */
+pre.prettyprint{
+margin:0 auto;
+display:block;
+overflow-x:auto;
+border:none;
+padding:10px;
+margin:0 20px;
+}
+li>code, p>code{
+padding:1px 5px;
+color:#787878;
+background:#eee;
+}
+ol li{
+	font-size:13px;
+	color:#606060;
+	line-height:22px;
+}
+/* desert scheme ported from vim to google prettify */
+pre.prettyprint { display: block; background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff } /* punctuation */
+pre .pln { color: #fff } /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal - lightgreen */
+
+/* Specify class="linenums" on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+pre.prettyprint { background-color: none }
+pre .str, code .str { color: #060 }
+pre .kwd, code .kwd { color: #006; font-weight: bold }
+pre .com, code .com { color: #600; font-style: italic }
+pre .typ, code .typ { color: #404; font-weight: bold }
+pre .lit, code .lit { color: #044 }
+pre .pun, code .pun { color: #440 }
+pre .pln, code .pln { color: #000 }
+pre .tag, code .tag { color: #006; font-weight: bold }
+pre .atn, code .atn { color: #404 }
+pre .atv, code .atv { color: #060 }
+}
+</style>
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="../index.html" id="logo">MZULE</a>
+				<ul id="navigation">
+					<li>
+						<a href="../index.html">home</a>
+					</li>
+					<li>
+						<a href="../me.html">about</a>
+					</li>
+					<li>
+						<a href="http://weibo.com/u/2634262551/home?wvr=5">weibo</a>
+					</li>
+					<li>
+						<a href="http://stackoverflow.com/users/1985786/jason-cao">stackoverflow</a>
+					</li>
+					<li>
+						<a href="http://github.com/mzule/">github</a>
+					</li>
+					<li>
+						<a href="http://www.zhihu.com/people/mzule">zhihu</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div id="contents">
+			<ul id="blogs">
+				<li>
+					<div class="header">
+						<div class="details">
+							<h3><a href="posts/edit-distance-and-spell-check.html">最小编辑距离，键盘距离与拼写纠正</a></h3>
+								<p class="time">
+								Post at 2013-10-27 11:22:12
+								</p>
+							<div class="connect"></div>
+							<div id="postContent">
+							<p><code>最小编辑距离</code>是指将一个错误拼写的单词纠正正确的最小编辑次数，这里的编辑包含插入、删除、修改三种操作，每一次编辑只能改变一个字母。因为这个概念是俄罗斯科学家 Vladimir Levenshtein 在1965年提出来的，所以编辑距离又称为<code>Levenshtein</code>距离。</p>
+<p>就拿<code>Levenshtein</code>这个单词举例说明好了，<code>Levenshtein</code>作为一个人名，很容易会被拼写错误。假设现在有一个错误拼写的<code>Lavensting</code>. 那么他们的编辑距离是多少呢？</p>
+<p>参考正确的单词<code>Levenshtein</code>，可以看出，由<code>Lavensting</code>纠正为<code>Levenshtein</code>的步骤为:
+<br  /><code>Lavensting</code> V.S. <code>Levenshtein</code></p>
+<ol>
+<li>将第二个字母<code>a</code>修改为<code>e</code>；</li>
+<li>在第六个字母<code>s</code>后面插入<code>h</code>；</li>
+<li>在第七个字母<code>t</code>后面插入<code>e</code>；</li>
+<li>将最后一个字母<code>g</code>删除。</li>
+</ol>
+<p>这里我们进行了四次操作，所以<code>Lavensting</code>和<code>Levenstein</code>的编辑距离是<code>4</code>. 而且我们可以目测出这已经是最小编辑距离了。</p>
+<p>那么我们怎么使用最小编辑距离为错误拼写的单词进行纠正呢？原理很简单，也很粗暴。用单词库里面的所有单词与错误拼写的单词计算最小编辑距离，最小编辑距离最小的单词，便很可能是正确的单词，也就是纠正的结果。</p>
+<p>接下来，接下来便是如何使用计算机求解最小编辑距离。动态规划经常被用来作为这个问题的解决手段之一。</p>
+<p>笔者水平有限，动态规划难以描述清楚，这里给一个定义：动态规划是通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。</p>
+<p>下面是java代码：</p>
+<pre><code>package com.mzule.al;
+
+public class LevenshteinDistance {
+
+public double distance(String w1,String w2){
+double[][] m = new double[w1.length()+1][w2.length()+1];
+for(int i=0;i&lt;m.length;i++){
+m[i][0]=i;
+}
+for(int i=0;i&lt;m[0].length;i++){
+m[0][i]=i;
+}
+for(int i=1;i&lt;m.length;i++){
+for(int j=1;j&lt;m[0].length;j++){
+m[i][j] = min(m[i][j-1]+1,m[i-1][j]+1,m[i-1][j-1]+cost(w1.charAt(i-1),w2.charAt(j-1)));
+}
+}
+return m[w1.length()][w2.length()];
+}
+
+protected double cost(char c1,char c2) {
+return c1==c2?0:1;
+}
+
+protected double min(double i, double j, double k) {
+double t = i&lt;j?i:j;
+return t&lt;k?t:k;
+}
+
+}
+</code></pre>
+<p>上面的核心代码是两个for循环中的部分：</p>
+<pre><code>m[i][j] = min(m[i][j-1]+1,m[i-1][j]+1,m[i-1][j-1]+cost(w1.charAt(i-1),w2.charAt(j-1)));
+</code></pre>
+<p>这段代码可以这样理解，例如我们已知<code>ab</code>与<code>a</code>、<code>a</code>与<code>a</code>、<code>a</code>与<code>ac</code>的距离，计算字符串 <code>ab</code>与<code>ac</code>的距离，有三个方式，对应于编辑操作的插入、删除、修改三种操作：</p>
+<ol>
+<li>在<code>ab</code>与<code>a</code>的距离基础上+1，因为<code>ac</code>多了一个<code>c</code>；</li>
+<li>在<code>a</code>与<code>ac</code>的距离的基础上+1，因为ab多了一个<code>b</code>；</li>
+<li>在<code>a</code>与<code>a</code>的距离的基础上加上<code>b</code>与<code>c</code>的距离，<code>b</code>与<code>c</code>的距离很简单，因为<code>b</code>与<code>c</code>不相等，为1</li>
+</ol>
+<p>测试上面的代码运行效果：</p>
+<pre><code>public static void main(String[] args) {
+double d = new LevenshteinDistance().distance("Lavensting", "Levenshtein");
+System.out.println(d);
+}
+</code></pre>
+<p>输出的结果为：<code>4.0</code>，和我们之前目测的结果一样。</p>
+<p>好了，现在我们可以用这个算法去做拼写纠错了。</p>
+<p>但是这个算法不够完美，因为没有考虑到键盘距离。</p>
+<p>在上面程序中的<code>cost</code>方法，只是简单的对相同的字符返回<code>0</code>，不同的字符返回<code>1</code>。这种情况下，<code>cost(‘a’,‘p’)</code>和<code>cost(‘a’,‘s’)</code>的值是一样的，都是<code>1</code>.但是他们应该是不一样的，因为<code>a</code>被误输入为<code>s</code>的概率比误输入为<code>p</code>的概率大得多，因为在键盘上，<code>a</code>与<code>s</code>是邻居，手指很容易误按，而<code>p</code>与<code>a</code>距离太远，用户输入<code>p</code>基本上都是真实的想法。</p>
+<p>所以我们要对上面的算法进行改进，引入新的<code>cost</code>计算机制：</p>
+<pre><code>package com.mzule.al;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class KeyboardLevenshteinDistance extends LevenshteinDistance {
+
+private static final Map&lt;Character, String&gt; charSiblings;
+private static final double SCORE_MIS_HIT = 0.1;
+
+static {
+charSiblings = new HashMap&lt;&gt;();
+charSiblings.put('q', "was");
+charSiblings.put('w', "qsead");
+charSiblings.put('e', "wsdfr");
+charSiblings.put('r', "edfgt");
+charSiblings.put('t', "rfghy");
+charSiblings.put('y', "tghju");
+charSiblings.put('u', "yhjki");
+charSiblings.put('i', "ujklo");
+charSiblings.put('o', "ikl;p");
+charSiblings.put('p', "ol;'[");
+charSiblings.put('a', "qwsxz");
+charSiblings.put('s', "qazxcdew");
+charSiblings.put('d', "wsxcvfre");
+charSiblings.put('f', "edcvbgtr");
+charSiblings.put('g', "rfvbnhyt");
+charSiblings.put('h', "tgbnmjuy");
+charSiblings.put('j', "yhnm,kiu");
+charSiblings.put('k', "ujm,.loi");
+charSiblings.put('l', "ik,./;po");
+charSiblings.put('z', "asx");
+charSiblings.put('x', "zasdc");
+charSiblings.put('c', "xsdfv");
+charSiblings.put('v', "cdfgb");
+charSiblings.put('b', "vfghn");
+charSiblings.put('n', "bghjm");
+charSiblings.put('m', "nhjk,");
+}
+
+@Override
+protected double cost(char c1, char c2) {
+return keyboardDistance(c1, c2);
+}
+
+private double keyboardDistance(char c1, char c2) {
+if (c1 == c2) {
+return 0;
+}
+String s = charSiblings.get(c1);
+if (s != null &amp;&amp; s.indexOf(c2) &gt; -1) {
+return SCORE_MIS_HIT;
+}
+return 1;
+}
+
+}
+</code></pre>
+<p>上面的类继承自<code>LevenshteinDistance</code> ，重写了<code>cost</code>方法，根据键盘距离，对相邻的字母返回<code>0.1</code>，不相邻的字母返回距离<code>1</code>.</p>
+<pre><code>cost('a','s')=0.1
+cost('a','p')=1
+</code></pre>
+<p>测试<code>KeyboardLevenshteinDistance</code>:</p>
+<pre><code>public static void main(String[] args) {
+double d = new KeyboardLevenshteinDistance().distance("thanks", "tjsmla");
+System.out.println(d);
+}
+</code></pre>
+<p>输出：<code>0.5</code>，和预期的结果一样。<code>tjsmla</code>与<code>thanks</code>非常相似，因为在新买的键盘还是不熟悉的情况下，误输入<code>thanks</code>为<code>tjsmla</code>也很正常。</p>
+<p>上面的算法完美了吗？of course not.</p>
+<p>还有很多优化空间。比如：除了键盘距离，我们还可以考虑读音距离，对于读音相似的字母，也应该距离更近一些。比如说<code>a</code>与<code>e</code>，就很容易就混淆。对于结尾的<code>t</code>与<code>te</code>的距离应该更近一些，而不是<code>1</code>。但是这些都还是自己想法，不容易实现。欢迎指点。</p>
+
+							</div>
+							<div class="connect"></div>
+							<div class="prenext">
+								<div class="pre"><a href="think about solrappender.html">Newer Post:Solr-appender想到的</a></div>
+								<div class="next"><a href="Java mail simple implements.html">Older Post:JAVA邮件发送的简单实现</a></div>
+								<div class="connect"></div>
+							</div>
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1882897"></script>
+<!-- UY END -->
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="footer">
+			<div>
+				<div class="section">
+					<h5>Navigation Menu</h5>
+					<ul class="navigation">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li>
+							<a href="about.html">About</a>
+						</li>
+						<li>
+							<a href="schedules.html">Class Schedules</a>
+						</li>
+						<li>
+							<a href="performance.html">Performances</a>
+						</li>
+						<li>
+							<a href="blog.html">Blog</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Recent Blog Posts</h5>
+					<ul>
+						<li>
+							<a href="blog.html">Dance Tips &amp; Tricks: How To Know If Modern Dance Is Right For You</a>
+						</li>
+						<li>
+							<a href="blog.html">Dance Tips &amp; Tricks: The Secrets To A Successful Dancing Career</a>
+						</li>
+						<li>
+							<a href="blog.html">Daring Dancer: Harillsa Gortengkov</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Studio Hours</h5>
+					<ul>
+						<li>
+							Mondays to Fridays: 8am- 5pm
+						</li>
+						<li>
+							Saturdays: 10am-5pm
+						</li>
+						<li>
+							Sundays: 10am-12nn
+						</li>
+						<li>
+							For Appointments: Call 262-956-6778
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Social</h5>
+					<ul class="connect">
+						<li>
+							<a href="http://freewebsitetemplates.com/go/facebook/" target="_blank">Facebook</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/twitter/" target="_blank">Twitter</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/youtube/" target="_blank">Vimeo</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank">Google+</a>
+						</li>
+					</ul>
+					<h5>Newsletter Signup</h5>
+					<form action="index.html" method="post" id="newsletter">
+						<input type="text" value="Enter your email address" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+						<input type="submit" value="" class="btn">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
