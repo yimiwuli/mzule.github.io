@@ -647,6 +647,7 @@ img {
 	padding:15px;
 }
 #postContent{
+	text-indent:2em;
 	padding:15px;
 	overflow:hidden;
 }
