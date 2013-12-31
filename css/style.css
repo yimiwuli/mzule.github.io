@@ -53,8 +53,7 @@ img {
 	background: url(../images/separators.png) no-repeat;
 }
 #blogs li, #blogs div.header, #blogs div.details {
-	background-image: url(../images/bg-blog-content.png);
-	background-repeat: no-repeat;
+	background:#ffffff;
 }
 #connect > a {
 	background: url(../images/icons.png) no-repeat;
