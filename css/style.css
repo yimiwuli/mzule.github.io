@@ -645,8 +645,14 @@ img {
 #uyan_frame{
 	padding:15px;
 }
+#postContent{
+	padding:15px;
+}
+#postContent h2{
+	background:#f6f6f6;
+	padding:5px;
+}
 #postContent p{
 	text-indent:2em;
-	padding:15px;
 	overflow:hidden;
 }
