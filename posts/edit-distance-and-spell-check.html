@@ -128,30 +128,30 @@ pre .atv, code .atv { color: #060 }
 
 public class LevenshteinDistance {
 
-public double distance(String w1,String w2){
-double[][] m = new double[w1.length()+1][w2.length()+1];
-for(int i=0;i&lt;m.length;i++){
-m[i][0]=i;
-}
-for(int i=0;i&lt;m[0].length;i++){
-m[0][i]=i;
-}
-for(int i=1;i&lt;m.length;i++){
-for(int j=1;j&lt;m[0].length;j++){
-m[i][j] = min(m[i][j-1]+1,m[i-1][j]+1,m[i-1][j-1]+cost(w1.charAt(i-1),w2.charAt(j-1)));
-}
-}
-return m[w1.length()][w2.length()];
-}
+    public double distance(String w1,String w2){
+        double[][] m = new double[w1.length()+1][w2.length()+1];
+        for(int i=0;i&lt;m.length;i++){
+            m[i][0]=i;
+        }
+        for(int i=0;i&lt;m[0].length;i++){
+            m[0][i]=i;
+        }
+        for(int i=1;i&lt;m.length;i++){
+            for(int j=1;j&lt;m[0].length;j++){
+                m[i][j] = min(m[i][j-1]+1,m[i-1][j]+1,m[i-1][j-1]+cost(w1.charAt(i-1),w2.charAt(j-1)));
+            }
+        }
+        return m[w1.length()][w2.length()];
+    }
 
-protected double cost(char c1,char c2) {
-return c1==c2?0:1;
-}
+    protected double cost(char c1,char c2) {
+        return c1==c2?0:1;
+    }
 
-protected double min(double i, double j, double k) {
-double t = i&lt;j?i:j;
-return t&lt;k?t:k;
-}
+    protected double min(double i, double j, double k) {
+        double t = i&lt;j?i:j;
+        return t&lt;k?t:k;
+    }
 
 }
 </code></pre>
@@ -166,8 +166,8 @@ return t&lt;k?t:k;
 </ol>
 <p>测试上面的代码运行效果：</p>
 <pre><code>public static void main(String[] args) {
-double d = new LevenshteinDistance().distance("Lavensting", "Levenshtein");
-System.out.println(d);
+    double d = new LevenshteinDistance().distance("Lavensting", "Levenshtein");
+    System.out.println(d);
 }
 </code></pre>
 <p>输出的结果为：<code>4.0</code>，和我们之前目测的结果一样。</p>
@@ -182,54 +182,54 @@ import java.util.Map;
 
 public class KeyboardLevenshteinDistance extends LevenshteinDistance {
 
-private static final Map&lt;Character, String&gt; charSiblings;
-private static final double SCORE_MIS_HIT = 0.1;
+    private static final Map&lt;Character, String&gt; charSiblings;
+    private static final double SCORE_MIS_HIT = 0.1;
 
-static {
-charSiblings = new HashMap&lt;&gt;();
-charSiblings.put('q', "was");
-charSiblings.put('w', "qsead");
-charSiblings.put('e', "wsdfr");
-charSiblings.put('r', "edfgt");
-charSiblings.put('t', "rfghy");
-charSiblings.put('y', "tghju");
-charSiblings.put('u', "yhjki");
-charSiblings.put('i', "ujklo");
-charSiblings.put('o', "ikl;p");
-charSiblings.put('p', "ol;'[");
-charSiblings.put('a', "qwsxz");
-charSiblings.put('s', "qazxcdew");
-charSiblings.put('d', "wsxcvfre");
-charSiblings.put('f', "edcvbgtr");
-charSiblings.put('g', "rfvbnhyt");
-charSiblings.put('h', "tgbnmjuy");
-charSiblings.put('j', "yhnm,kiu");
-charSiblings.put('k', "ujm,.loi");
-charSiblings.put('l', "ik,./;po");
-charSiblings.put('z', "asx");
-charSiblings.put('x', "zasdc");
-charSiblings.put('c', "xsdfv");
-charSiblings.put('v', "cdfgb");
-charSiblings.put('b', "vfghn");
-charSiblings.put('n', "bghjm");
-charSiblings.put('m', "nhjk,");
-}
+    static {
+        charSiblings = new HashMap&lt;&gt;();
+        charSiblings.put('q', "was");
+        charSiblings.put('w', "qsead");
+        charSiblings.put('e', "wsdfr");
+        charSiblings.put('r', "edfgt");
+        charSiblings.put('t', "rfghy");
+        charSiblings.put('y', "tghju");
+        charSiblings.put('u', "yhjki");
+        charSiblings.put('i', "ujklo");
+        charSiblings.put('o', "ikl;p");
+        charSiblings.put('p', "ol;'[");
+        charSiblings.put('a', "qwsxz");
+        charSiblings.put('s', "qazxcdew");
+        charSiblings.put('d', "wsxcvfre");
+        charSiblings.put('f', "edcvbgtr");
+        charSiblings.put('g', "rfvbnhyt");
+        charSiblings.put('h', "tgbnmjuy");
+        charSiblings.put('j', "yhnm,kiu");
+        charSiblings.put('k', "ujm,.loi");
+        charSiblings.put('l', "ik,./;po");
+        charSiblings.put('z', "asx");
+        charSiblings.put('x', "zasdc");
+        charSiblings.put('c', "xsdfv");
+        charSiblings.put('v', "cdfgb");
+        charSiblings.put('b', "vfghn");
+        charSiblings.put('n', "bghjm");
+        charSiblings.put('m', "nhjk,");
+    }
 
-@Override
-protected double cost(char c1, char c2) {
-return keyboardDistance(c1, c2);
-}
+    @Override
+    protected double cost(char c1, char c2) {
+        return keyboardDistance(c1, c2);
+    }
 
-private double keyboardDistance(char c1, char c2) {
-if (c1 == c2) {
-return 0;
-}
-String s = charSiblings.get(c1);
-if (s != null &amp;&amp; s.indexOf(c2) &gt; -1) {
-return SCORE_MIS_HIT;
-}
-return 1;
-}
+    private double keyboardDistance(char c1, char c2) {
+        if (c1 == c2) {
+            return 0;
+        }
+        String s = charSiblings.get(c1);
+        if (s != null &amp;&amp; s.indexOf(c2) &gt; -1) {
+            return SCORE_MIS_HIT;
+        }
+        return 1;
+    }
 
 }
 </code></pre>
@@ -239,8 +239,8 @@ cost('a','p')=1
 </code></pre>
 <p>测试<code>KeyboardLevenshteinDistance</code>:</p>
 <pre><code>public static void main(String[] args) {
-double d = new KeyboardLevenshteinDistance().distance("thanks", "tjsmla");
-System.out.println(d);
+    double d = new KeyboardLevenshteinDistance().distance("thanks", "tjsmla");
+    System.out.println(d);
 }
 </code></pre>
 <p>输出：<code>0.5</code>，和预期的结果一样。<code>tjsmla</code>与<code>thanks</code>非常相似，因为在新买的键盘还是不熟悉的情况下，误输入<code>thanks</code>为<code>tjsmla</code>也很正常。</p>
