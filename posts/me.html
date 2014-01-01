@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Blog of MZULE | Solr-appender想到的</title>
+	<title>Blog of MZULE | About me</title>
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
@@ -103,39 +103,46 @@ pre .atv, code .atv { color: #060 }
 				<li>
 					<div class="header">
 						<div class="details">
-							<h3><a>Solr-appender想到的</a></h3>
+							<h3><a>About me</a></h3>
 								<p class="time">
-								Post at 2013-12-30 12:12:12
+								Post at 2014-01-01 09:35:43
 								</p>
 							<div class="connect"></div>
 							<div id="postContent">
-							<h2>1. 背景</h2>
-<p>前些日子分析线上日志感觉非常头疼。</p>
-<ol>
-<li>登录产线环境需要跳板机，速度不至于很慢，但也是不能忍受的事情。</li>
-<li>产线环境都是集群，有时候出错了都不知道该去哪台机器上去看错误日志。</li>
-<li>对自己而言，使用grep查询日志效率低。</li>
-</ol>
-<p>综上，由于这些种种的原因，自己突然考虑：为什么日志不能直接写到solr服务上面去呢？单独开辟出来一个solr机器（集群就更好了XD）</p>
-<h2>2. 开发</h2>
-<p>有了想法，二话不说，对log4j开刀，XXOO一会就解决了。方案见：</p>
-<p>https://github.com/mzule/solr-appender</p>
-<p>我还煞有介事的写了Getting Stated和Wiki (事实上，这个最耗时)。</p>
-<h2>3. 应用</h2>
-<p>写完之后，拿着运行的效果图，发了一个微博圈了老大，建议TEAM使用solr来管理我们的log，对于查询来说，solr绝对是一把利剑。老大的答复是：公司已经开发了一套基于搜索引擎的日志管理系统，马上就要上线了。还给了我一个体验地址。好吧，太巧合了。</p>
-<p>公司的这套系统，是一个日志采集系统，采集线上生成的日志文件，然后写入到solr中方便查询的。刚开始我表示很不理解，为什么不直接把日志写入到solr而要费时费力的去写到文件然后再采集？</p>
-<h2>4. 后记</h2>
-<p>今天又是查线上的日志，想到要登录切换的登录机器去看日志，想想就头大。</p>
-<p>心想，为什么不能直接把日志记录在solr中呢？下面我们来分析分析：</p>
-<p><em>性能</em>：性能什么的我觉得应该不是什么问题，在网络比硬盘快的时代，瓶颈在于硬盘，所以solr在性能方面不是问题。</p>
-<p><em>安全</em>：安全应该是一个使用solr记录日志所最需要考虑的一个问题了。记录日志文件是如此的重要，所以这个记录的过程应该越简单越好，保证错误的日志要能够被记录下来，而记录日志最简单的方式，可能就是写入文件了；将日志写入solr无疑会涉及比文件系统多的多的模块涉及进来，一个模块出现故障，日志就会丢失，所以安全性方面，solr不及文件系统。</p>
+							<h2>简介</h2>
+<pre><code>public Human aboutMe() {
+    Human me = new Programer();
+    me.setName("曹冬平");
+    me.setEnglishName("Jason Cao");
+    me.setGender(Gender.MALE);
+    me.setLocation("上海");
+    me.setCompany("Newegg.com");
+    me.setHobbies("编码", "旅游", "看书","品美食", "睡懒觉", "偶尔运动");
+    me.setLabels("攻城师", "电商", "Geek");
+    me.setMotto("the devil is in detail");
+    return me;
+}
+</code></pre>
+<h2>曾经的博客</h2>
+<p><a href="http://www.cnblogs.com/codeplus">http://www.cnblogs.com/codeplus</a></p>
+<p><a href="http://blog.csdn.net/mzule">http://blog.csdn.net/mzule</a></p>
+<h2>开源项目</h2>
+<h3><a href="https://github.com/mzule/jayi">Jayi</a></h3>
+<p><code>Jayi</code>是一个开源的静态网页生成器，本博便是用<code>Jayi</code>实现的（注意网站下方的powered by Jayi）。</p>
+<h3><a href="https://github.com/mzule/solr-appender">SolrAppender</a></h3>
+<p><code>SolrAppender</code>是一个<code>log4j</code>的扩展，使得<code>log4j</code>可以直接写入日志到<code>solr</code>，方便日后日志的分析与维护。</p>
+<p>关于直接写日志到<code>SolrAppender</code>的讨论参考：</p>
+<p><a href="http://stackoverflow.com/questions/209497/using-a-sql-server-for-application-logging-pros-cons">http://stackoverflow.com/questions/209497/using-a-sql-server-for-application-logging-pros-cons</a></p>
+<p><a href="http://mzule.github.io/posts/think%20about%20solrappender.html">http://mzule.github.io/posts/think%20about%20solrappender.html</a></p>
+<h2>小伙伴的链接</h2>
+<p><a href="http://www.zcool.com.cn/u/1683871">http://www.zcool.com.cn/u/1683871</a></p>
+<p><a href="http://blog.csdn.net/barryhappy">http://blog.csdn.net/barryhappy</a></p>
+<h2>更多的了解</h2>
+<p><a href="http://www.github.com/mzule">Github</a></p>
+<p><a href="http://stackoverflow.com/users/1985786/jason-cao">StackOverFlow</a></p>
+<p><a href="http://weibo.com/u/2634262551/home?wvr=5">Sina Weibo</a></p>
+<p><a href="http://www.zhihu.com/people/mzule">Zhihu</a></p>
 
-							</div>
-							<div class="connect"></div>
-							<div class="prenext">
-								<div class="pre"><a href="me.html">Newer Post:About me</a></div>
-								<div class="next"><a href="edit-distance-and-spell-check.html">Older Post:最小编辑距离，键盘距离与拼写纠正</a></div>
-								<div class="connect"></div>
 							</div>
 <!-- UY BEGIN -->
 <div id="uyan_frame"></div>
