@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Blog of MZULE | 解决prettify进行代码高亮导致网页加载慢的问题</title>
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$("pre").addClass("prettyprint");
+});
+</script>
+<script src="../js/run_prettify.js"></script>
+<style type="text/css">
+
+/* customerized */
+pre.prettyprint{
+margin:0 auto;
+display:block;
+overflow-x:auto;
+border:none;
+padding:10px;
+margin:0 20px 20px 20px;
+}
+li>code, p>code{
+padding:1px 5px;
+color:#787878;
+background:#eee;
+}
+ol li{
+	font-size:13px;
+	color:#606060;
+	line-height:22px;
+}
+/* desert scheme ported from vim to google prettify */
+pre.prettyprint { display: block; background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff } /* punctuation */
+pre .pln { color: #fff } /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal - lightgreen */
+
+/* Specify class="linenums" on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+pre.prettyprint { background-color: none }
+pre .str, code .str { color: #060 }
+pre .kwd, code .kwd { color: #006; font-weight: bold }
+pre .com, code .com { color: #600; font-style: italic }
+pre .typ, code .typ { color: #404; font-weight: bold }
+pre .lit, code .lit { color: #044 }
+pre .pun, code .pun { color: #440 }
+pre .pln, code .pln { color: #000 }
+pre .tag, code .tag { color: #006; font-weight: bold }
+pre .atn, code .atn { color: #404 }
+pre .atv, code .atv { color: #060 }
+}
+</style>
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div>
+				<a href="../index.html" id="logo">MZULE</a>
+				<ul id="navigation">
+					<li>
+						<a href="../index.html">home</a>
+					</li>
+					<li>
+						<a href="../posts/me.html">about</a>
+					</li>
+					<li>
+						<a href="http://weibo.com/u/2634262551/home?wvr=5">weibo</a>
+					</li>
+					<li>
+						<a href="http://stackoverflow.com/users/1985786/jason-cao">stackoverflow</a>
+					</li>
+					<li>
+						<a href="http://github.com/mzule/">github</a>
+					</li>
+					<li>
+						<a href="http://www.zhihu.com/people/mzule">zhihu</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div id="contents">
+			<ul id="blogs">
+				<li>
+					<div class="header">
+						<div class="details">
+							<h3><a>解决prettify进行代码高亮导致网页加载慢的问题</a></h3>
+								<p class="time">
+								Post at 2014-01-02 21:53:37
+								</p>
+							<div class="connect"></div>
+							<div id="postContent">
+							<p>技术博客都少不了代码高亮，在前端<code>javascript</code>进行代码高亮的插件中，<code>prettify</code>是一个重要的成员。本博也打算使用的<code>prettify</code>进行代码高亮。</p>
+<p>下面是官方的<code>Setup</code></p>
+<pre><code>Download a distribution
+Include the script tag below in your document
+&lt;script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"&gt;&lt;/script&gt;
+See Getting Started to configure that URL with options you need.
+Look at the skin gallery and pick styles that suit you.
+</code></pre>
+<p>但是在根据官方的<code>Setup</code>使用的时候，发现一个难以接受的问题：可能是由于<code>GreatFw</code>的原因，引入了<code>google code</code>的<code>prettify</code>之后，页面加载变得巨慢无比。</p>
+<p>尝试手动访问<a href="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js</a>，也是慢的惊奇，果然是新引入的<code>javascript</code>导致的页面加载问题。</p>
+<p>找到了问题的源头，问题就已经解决了一半。</p>
+<p>根据以往的经验，访问谷歌的服务，如果响应很慢，把<code>https</code>协议换成<code>http</code>协议会使得速度提升很多。试了一下手动访问<a href="http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js">http://google-code-prettify.googlecode.com/svn/loader/run_prettify.js</a>, 嗖的一下，页面加载结束，如沐春风。</p>
+<p>于是，赶紧把网页中<code>prettify</code>引用的协议改成了<code>http</code>，再一次尝试&hellip;&hellip;额(⊙o⊙)…，还是很慢。</p>
+<p>后来潜心分析，发现这个<code>prettify</code>的文件名叫做：<code>run_prettify.js</code>, 肯定是它自己本身也引用了其他的<code>javascript</code>文件，打开看一下，果然逮住了3个<code>https</code>协议的地址。</p>
+<p>好吧，在本地存一份<code>run_prettify.js</code>，把里面的<code>https</code>统统改成<code>http</code>.  然后再网页中引用本地的<code>run_perttify.js</code>. 再次运行博客。飞一般感觉。</p>
+
+							</div>
+							<div class="connect"></div>
+							<div class="prenext">
+								<div class="pre"><a href="">Newer Post:</a></div>
+								<div class="next"><a href="jayi-introduction.html">Older Post:这个博客是基于Jayi搭建的</a></div>
+								<div class="connect"></div>
+							</div>
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1882897"></script>
+<!-- UY END -->
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="footer">
+			<div>
+				<div class="section">
+					<h5>Navigation Menu</h5>
+					<ul class="navigation">
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li>
+							<a href="about.html">About</a>
+						</li>
+						<li>
+							<a href="schedules.html">Class Schedules</a>
+						</li>
+						<li>
+							<a href="performance.html">Performances</a>
+						</li>
+						<li>
+							<a href="blog.html">Blog</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Recent Blog Posts</h5>
+					<ul>
+						<li>
+							<a href="blog.html">Dance Tips &amp; Tricks: How To Know If Modern Dance Is Right For You</a>
+						</li>
+						<li>
+							<a href="blog.html">Dance Tips &amp; Tricks: The Secrets To A Successful Dancing Career</a>
+						</li>
+						<li>
+							<a href="blog.html">Daring Dancer: Harillsa Gortengkov</a>
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Studio Hours</h5>
+					<ul>
+						<li>
+							Mondays to Fridays: 8am- 5pm
+						</li>
+						<li>
+							Saturdays: 10am-5pm
+						</li>
+						<li>
+							Sundays: 10am-12nn
+						</li>
+						<li>
+							For Appointments: Call 262-956-6778
+						</li>
+					</ul>
+				</div>
+				<div class="section">
+					<h5>Social</h5>
+					<ul class="connect">
+						<li>
+							<a href="http://freewebsitetemplates.com/go/facebook/" target="_blank">Facebook</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/twitter/" target="_blank">Twitter</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/youtube/" target="_blank">Vimeo</a>
+						</li>
+						<li>
+							<a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank">Google+</a>
+						</li>
+					</ul>
+					<h5>Newsletter Signup</h5>
+					<form action="index.html" method="post" id="newsletter">
+						<input type="text" value="Enter your email address" class="txtfield" onBlur="javascript:if(this.value==''){this.value=this.defaultValue;}" onFocus="javascript:if(this.value==this.defaultValue){this.value='';}">
+						<input type="submit" value="" class="btn">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
