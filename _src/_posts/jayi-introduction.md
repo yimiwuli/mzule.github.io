@@ -86,7 +86,7 @@ Post是Jayi中的一个基本元素，代表着一篇博文，可以是Markdown�
 PostCompiler负责整合PostProcessor和PostListProcessor的处理流程。分成三个阶段：
 
 1. BeforeListProcess
-2. LisrProcess
+2. ListProcess
 3. AfterListProcess
 
 ####3.2.4 IndexProcessor
