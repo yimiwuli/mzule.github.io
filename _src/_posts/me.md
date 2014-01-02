@@ -10,6 +10,7 @@ public Human aboutMe() {
 	me.setName("曹冬平");
 	me.setEnglishName("Jason Cao");
 	me.setGender(Gender.MALE);
+	me.setEMail("mzule4j#gmail.com".replace("#","@"));
 	me.setLocation("上海");
 	me.setCompany("Newegg.com");
 	me.setHobbies("编码", "旅游", "看书","品美食", "睡懒觉", "偶尔运动");
@@ -53,6 +54,3 @@ public Human aboutMe() {
 [StackOverFlow](http://stackoverflow.com/users/1985786/jason-cao)
 
 [Sina Weibo](http://weibo.com/u/2634262551/home?wvr=5)
-
-[Zhihu](http://www.zhihu.com/people/mzule)
-
