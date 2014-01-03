@@ -1,31 +1,16 @@
-/* Website template by freewebsitetemplates.com */
-@font-face {
-	font-family: 'Muli';
-	src: url('../fonts/Muli-Regular.eot');
-	src: local('☺'),  url('../fonts/Muli-Regular.woff') format('woff'),  url('../fonts/Muli-Regular.ttf') format('truetype'),  url('../fonts/Muli-Regular.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Muli-Light';
-	src: url('../fonts/Muli-Light.eot');
-	src: local('☺'),  url('../fonts/Muli-Light.woff') format('woff'),  url('../fonts/Muli-Light.ttf') format('truetype'),  url('../fonts/Muli-Light.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'NixieOne';
-	src: url('../fonts/NixieOne-Regular.eot');
-	src: local('☺'),  url('../fonts/NixieOne-Regular.woff') format('woff'),  url('../fonts/NixieOne-Regular.ttf') format('truetype'),  url('../fonts/NixieOne-Regular.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-/*-------------------------------------------------------------*/
 
+@font-face {
+        font-family: 'Muli-Light';
+        src: url('../fonts/Muli-Light.eot');
+        src: local('☺'),  url('../fonts/Muli-Light.woff') format('woff'),  url('../fonts/Muli-Light.ttf') format('truetype'),  url('../fonts/Muli-Light.svg') format('svg');
+        font-weight: normal;
+        font-style: normal;
+}
+/*---------------------------------------------------------------------*/
 body {
 	background-color: #f6f6f6;
-	font-family: 'Muli-Light';
 	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 #page {
 	width: 960px;
@@ -64,7 +49,6 @@ img {
 .play1, .play2, .play3 {
 	color: #fff;
 	display: inline-block;
-	font-family: "Muli";
 	text-decoration: none;
 	position: absolute;
 }
@@ -192,6 +176,7 @@ img {
 	float: left;
 	display: inline-block;
 	margin-top: 30px;
+	font-family:'Muli-Light';
 }
 /** Navigation **/
 #navigation {
@@ -206,7 +191,6 @@ img {
 }
 #navigation li a {
 	color: #8c8c8c;
-	font-family: 'Muli-Light';
 	font-size: 15px;
 	line-height: 54px;
 	padding: 0;
@@ -227,7 +211,6 @@ img {
 }
 #contents h2, #contents h3 {
 	color: #000;
-	font-family: 'NixieOne';
 	font-weight: normal;
 	line-height: 24px;
 	margin: 0 0 24px;
@@ -267,7 +250,6 @@ img {
 }
 #featured li p {
 	color: #000;
-	font-family: "Muli";
 	padding-bottom: 0;
 }
 #featured li p span {
@@ -296,7 +278,6 @@ img {
 #schedule li span.time {
 	display: inline-block;
 	float: left;
-	font-family: "Muli";
 	font-size: 13px;
 	line-height: 24px;
 	width: 72px;
@@ -312,7 +293,6 @@ img {
 	text-align: center;
 }
 #about h4 {
-	font-family: "NixieOne";
 	font-size: 14px;
 	font-weight: normal;
 	line-height:24px;
@@ -422,14 +402,10 @@ img {
 	display: inline-block;
 	text-decoration: none;
 }
-#blogs a.more:hover {
-	font-family: "Muli";
-}
 #blogs .connect {
 	background: url(../images/blog-divider.png) no-repeat 4px 0;
 	color: #606060;
 	display: inline-block;
-	font-family: Arial, Helvetica, sans-serif;
 	width: 885px;
 	padding:18px 37px 0 30px;
 	text-align: right;
@@ -448,7 +424,6 @@ img {
 #footer {
 	background-color: #fff;
 	color: #606060;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	line-height: 24px;
 	width: 100%;
@@ -528,7 +503,6 @@ img {
 }
 #newsletter input.txtfield {
 	color: #606060;
-	font-family: Arial, Helvetica, sans-serif;
 	height: 25px;
 	line-height: 25px;
 	width: 158px;
@@ -567,7 +541,6 @@ img {
 }
 #links h3 {
 	color: #8c8c8c;
-	font-family: 'NixieOne';
 	font-size: 18px;
 	font-weight: normal;
 	line-height: 24px;
@@ -594,7 +567,6 @@ img {
 }
 #footer div#links a {
 	color: #8c8c8c;
-	font-family: "Muli-Light";
 	font-size: 13px;
 }
 #footer div#links a:hover {
@@ -609,7 +581,6 @@ img {
 #searchbar input {
 	float: left;
 	color: #606060;
-	font-family: "Muli-Light";
 	font-size: 13px;
 	height: 24px;
 	line-height: 24px;
