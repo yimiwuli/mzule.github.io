@@ -1,28 +1,37 @@
-title:这个博客是基于Jayi搭建的
-template:post.html
----
 ##1. 诞生记
 以前一直用`csdn`或者`cnblogs`的博客服务，虽然说使用上还过得去，但是总是觉得不够geek. 自己有考虑过购买虚拟空间，还试用了几家，后来因为种种原因而一直耽误到今天。 意外的发现`github`提供了`pages`功能，并且鼓励用户利用该功能搭建博客、开源项目的官网。顿时觉得天上掉下了馅饼。哈哈~
 
-按照阮一峰老师的[教程](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)一步一步的完成了一个Hello World之后，开始正式的折腾了，发现`Jekyll`怎么都装不了，网上也找不到相关解答，`ruby`自己也不熟悉。顿时怒了，决定自己写一个静态网页生成器，于是`Jayi`就诞生了。`Jayi`是一款静态网页生成器，非常适合在github pages服务上搭建个人博客。
+按照阮一峰老师的[教程](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)一步一步的完成了一个Hello World之后，开始正式的折腾了，发现`Jekyll`怎么都装不了，网上也找不到相关解答，`ruby`自己也不熟悉。顿时怒了，决定自己写一个静态网页生成器，于是`Jayi`就诞生了。`Jayi`是一款静态网页生成器，非常适合在`github pages`服务上搭建个人博客。
 
 ##2. 使用Jayi
+
 ###2.1 快速开始
 Fork me at [github](https://github.com/mzule/mzule.github.io)
+
 ###2.2 内建变量 
+
 Jayi的内建变量包括：
 
-1. **title**
-2. **link**
-3. **time**
-4. **content**
-5. **next_post_title**
-6. **next_post_link**
-7. **previous_post_title**
-8. **previous_post_link**
+1. **title**：文章的标题，可以在文章中指定，默认使用文件名
+2. **link**：文章的地址，Jayi会自己进行创建
+3. **time**：发布时间，可以在文章中指定（推荐），默认使用文件创建日期
+4. **content**：文章的内容，Jayi支持html和markdown格式
+5. **next_post_title**：下一篇文章的标题
+6. **next_post_link**：下一篇文章的地址
+7. **previous_post_title**：上一篇文章的标题
+8. **previous_post_link**：上一篇文章的地址
 
 ###2.3 自定义变量
 
+用户可以在创建任意的变量名称，只需要在文章的声明部分进行声明即可。如下：
+```
+author:Jason Cao #自定义变量，使用冒号分割；变量名称不可包含冒号，变量值可以包含冒号
+time:2014-01-03 19:09:56 #可以覆盖内建变量的默认值
+___# 3个连续的'-'作为变量声明与文章内容的分隔符
+上篇文章我们说到... #文章的内容开始...
+blablabla
+欲知后事如何，且听下回分解
+```
 
 
 
@@ -86,7 +95,7 @@ Post是Jayi中的一个基本元素，代表着一篇博文，可以是Markdown�
 PostCompiler负责整合PostProcessor和PostListProcessor的处理流程。分成三个阶段：
 
 1. BeforeListProcess
-2. ListProcess
+2. LisrProcess
 3. AfterListProcess
 
 ####3.2.4 IndexProcessor

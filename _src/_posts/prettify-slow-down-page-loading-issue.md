@@ -1,4 +1,5 @@
 title:解决prettify进行代码高亮导致网页加载慢的问题
+time:2014-01-02 19:02:07
 template:post.html
 ---
 技术博客都少不了代码高亮，在前端`javascript`进行代码高亮的插件中，`prettify`是一个重要的成员。本博也打算使用的`prettify`进行代码高亮。
