@@ -36,6 +36,30 @@
 <li>
 <div class="header">
 <div class="details">
+<h3><a href="posts/solr-optimization-zhihu.html">Solr性能优化</a></h3>
+<p>
+本文主要转载自知乎的问题Solr，Lucene 优化有哪些相关经验可分享? 清尘的答案
+
+(对于Solr优化)倒是没有太多的经验， 不过最近着手做这方面的东西， 希望能讨论讨论：
+你的索引文件30G！这可是个非常大的数目了。
+1. 从schema入手：
+
+你的数据是都需要store的么， 比如一些字段只需要提供结果搜索而不作为结果返回， 那么需要将store设置为false从而减少数据量。
+你的所有字段都需要highlight么， 如果不需要highlight则可以将term vector关掉。
+确认你在schema没保存太多无用的信息（即不用来搜索也不用来返回）。
+你的分词算法是否合理， 如...<a href="posts/solr-optimization-zhihu.html">READ MORE</a>
+</p>
+<div class="connect">
+<p class="time">
+Post at 2014-01-04 19:33:10
+</p>
+</div>
+</div>
+</div>
+</li>
+<li>
+<div class="header">
+<div class="details">
 <h3><a href="posts/jayi-introduction.html">这个博客是使用Jayi搭建的</a></h3>
 <p>
 1. 诞生记
