@@ -645,4 +645,5 @@ blockquote p {
 hr{
 	border:none;
 	border:dotted 1px #aaa;
+	margin:28px 0;
 }
