@@ -8,7 +8,7 @@ template:post.html
 
 你的索引文件30G！这可是个非常大的数目了。
 
-### 1. 从schema入手：
+## 1. 从schema入手：
 
 1. 你的数据是都需要store的么， 比如一些字段只需要提供结果搜索而不作为结果返回， 那么需要将store设置为false从而减少数据量。
 2. 你的所有字段都需要highlight么， 如果不需要highlight则可以将term vector关掉。 
@@ -19,7 +19,7 @@ template:post.html
 
 ----
 
-### X. 自己的补充：
+## X. 自己的补充：
 
 
 1. 对于不需要进行搜索的字段，设置index="false"。
@@ -30,7 +30,7 @@ template:post.html
 
 ---
 
-### 2. 从segment角度：
+## 2. 从segment角度：
 
 1. lucence使用segment来保存索引数据， 可以在Solr中通过mergeFactor来指定需要的临时文件数目， 如果mergeFactor过大， 则index的时间会缩短， 但磁盘占用和搜索时间会变的很长， 可以考虑适当调整mergeFactor， 或者在slave上做定期的optimize操作， optimize会将segment合并到一起， 当然， 这个过程比较耗资源， 所以可以考虑optimize的时候指定要merge到的数据。
 2. 同样， 在master ， slave环境中， 最好不要在master上做optimize， 因为在master上做optimize会导致slave每次复制整个index的数据， 这当然不是你想要的， 所以要采取措施不要让master和slave的配置一样， 这样很不划算。
