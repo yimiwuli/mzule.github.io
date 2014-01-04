@@ -642,3 +642,7 @@ blockquote p {
   display: inline;
   text-indent: 0;
 }
+hr{
+	border:none;
+	border:dotted 1px #aaa;
+}
